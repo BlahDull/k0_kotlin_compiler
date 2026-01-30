@@ -1,0 +1,21 @@
+.string 24
+	s0: x\000		; loc: 0
+	s1: \000		; loc: 8
+	s2: $i\000		; loc: 16
+
+.data
+	loc:16	; text: k, type: Double, size: 8
+	loc:8	; text: y, type: String, size: 8
+	loc:0	; text: i, type: Int, size: 4
+
+.code	addr	loc:0,const:2
+	addr	loc:8,const:3.14
+
+main
+	addr	loc:0,const:5
+	add	temp,const:"x",const:""
+	addr	loc:8,temp
+	addr	loc:16,const:3.14
+	parm	const:"$i"
+	call	println,2,8
+	return	

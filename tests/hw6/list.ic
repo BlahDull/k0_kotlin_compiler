@@ -1,0 +1,15 @@
+.string 8
+	s0: $i\000		; loc: 0
+
+.data
+	loc:8	; text: i, type: Int, size: 4
+	loc:0	; text: a, type: Array<Int>, size: 8
+
+.code
+main
+	addr	loc:0,const:Array<Int>( 8 ) { 0 }
+	asn	loc:0,const:5
+	addr	loc:8,temp
+	parm	const:"$i"
+	call	println,2,8
+	return	

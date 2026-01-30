@@ -1,0 +1,10 @@
+.string 0
+
+.data
+
+.code
+main
+	addr	loc:0,const:1
+	add	temp,const:10,const:(
+	addr	loc:8,temp
+	return	

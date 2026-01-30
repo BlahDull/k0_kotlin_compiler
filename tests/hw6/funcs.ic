@@ -1,0 +1,28 @@
+.string 0
+
+.data
+	loc:0	; text: n, type: Int, size: 4
+	loc:8	; text: m, type: Int, size: 4
+	loc:0	; text: i, type: Int, size: 4
+
+.code
+fib
+	addr	loc:8,const:0
+	lt	temp,loc:0,const:2
+	if	temp
+	goto	label0
+
+label1
+	asn	loc:8,loc:0
+	add	temp,loc:8,loc:0
+	asn	loc:8,temp
+	return	loc:8
+
+main
+	addr	loc:0,const:5
+	asn	loc:0,loc:0
+	return	
+
+label0
+	return	const:1
+	goto	label1

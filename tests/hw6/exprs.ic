@@ -1,0 +1,20 @@
+.string 0
+
+.data
+	loc:16	; text: k, type: Int, size: 4
+	loc:8	; text: j, type: Int, size: 4
+	loc:0	; text: i, type: Int, size: 4
+
+.code
+main
+	addr	loc:0,const:5
+	add	temp,loc:0,loc:0
+	addr	loc:8,temp
+	add	temp,loc:8,loc:8
+	mul	temp,temp,loc:0
+	addr	loc:16,temp
+	div	temp,loc:16,loc:8
+	asn	loc:8,temp
+	div	temp,loc:16,const:(
+	asn	loc:0,temp
+	return	

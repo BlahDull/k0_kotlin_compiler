@@ -1,0 +1,76 @@
+.string 24
+	s0: not implemented\000		; loc: 0
+	s1: \000		; loc: 8
+	s2: k $k\000		; loc: 16
+
+.data
+	loc:0	; text: _i, type: Int, size: 4
+	loc:16	; text: k, type: Int, size: 4
+	loc:8	; text: j, type: Int, size: 4
+	loc:0	; text: i, type: Int, size: 4
+
+.code
+itoa
+	add	temp,const:"not implemented",const:""
+	return	temp
+
+main
+	addr	loc:0,const:5
+	addr	loc:8,const:0
+	addr	loc:16,const:0
+
+label0
+	gt	temp,loc:0,const:0
+	if	temp
+	goto	label1
+
+label2
+	eq	loc:0,const:5
+	goto	label3
+	parm	const:"k $k"
+	call	println,2,8
+	return	
+
+label1
+	asn	loc:0,loc:0
+	sub	temp,const:-
+	goto	label0
+
+label3
+
+label4
+
+label5
+
+label6
+	lt	temp,loc:0,loc:8
+	add	temp,loc:16,const:1
+	asn	loc:16,temp
+	goto	label7
+	if	temp
+	goto	label6
+
+label7
+
+label8
+	eq	temp,loc:0,loc:8
+	add	temp,loc:16,const:2
+	asn	loc:16,temp
+	goto	label9
+	if	temp
+	goto	label8
+
+label10
+	asn	loc:16,loc:16
+	sub	temp,const:-
+	goto	label9
+	else	
+	goto	label10
+
+label9
+	add	loc:8,const:1
+	goto	label4
+	eq	loc:8,const:5
+	goto	label5
+	add	loc:0,const:1
+	goto	label2

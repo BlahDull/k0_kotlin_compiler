@@ -1,0 +1,11 @@
+.string 8
+	s0: hello $i \000		; loc: 0
+
+.data
+
+.code
+main
+	addr	loc:0,const:0
+	parm	const:"hello $i "
+	call	println,2,8
+	return	
